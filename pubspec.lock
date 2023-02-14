@@ -41,14 +41,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "1.17.0"
-  cupertino_icons:
-    dependency: "direct main"
+  dots_indicator:
+    dependency: transitive
     description:
-      name: cupertino_icons
-      sha256: e35129dc44c9118cee2a5603506d823bab99c68393879edb440e0090d07586be
+      name: dots_indicator
+      sha256: e59dfc90030ee5a4fd4c53144a8ce97cc7a823c2067b8fb9814960cd1ae63f89
       url: "https://pub.dev"
     source: hosted
-    version: "1.0.5"
+    version: "2.1.0"
   dynamic_color:
     dependency: "direct main"
     description:
@@ -83,6 +83,22 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  font_awesome_flutter:
+    dependency: "direct main"
+    description:
+      name: font_awesome_flutter
+      sha256: "959ef4add147753f990b4a7c6cccb746d5792dbdc81b1cde99e62e7edb31b206"
+      url: "https://pub.dev"
+    source: hosted
+    version: "10.4.0"
+  introduction_screen:
+    dependency: "direct main"
+    description:
+      name: introduction_screen
+      sha256: "73965475d6b271846f81c5fce5b459546a4ea36c285408691522437fd6bbeb69"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.1.4"
   js:
     dependency: transitive
     description:
