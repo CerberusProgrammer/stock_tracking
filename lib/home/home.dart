@@ -12,7 +12,20 @@ class _Home extends State<StatefulWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: const Center(child: Text('Hola bebe')),
+      body: ListView.builder(
+        itemCount: 10,
+        itemBuilder: (BuildContext context, int index) {
+          return Card(
+            child: ListTile(
+              leading: const Icon(Icons.home),
+              trailing: const Icon(Icons.insert_emoticon),
+              title: Text('Title of $index item'),
+              subtitle: Text('Subtitle of $index item'),
+              onTap: () {},
+            ),
+          );
+        },
+      ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           Navigator.push(context,

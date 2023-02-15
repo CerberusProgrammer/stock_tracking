@@ -1,9 +1,11 @@
 import 'dart:ui';
 
+import 'package:flutter/foundation.dart';
+
 class Item {
   String name;
   String description;
-  String category;
+  Category category;
   double value;
   Picture picture;
   String barCode;
