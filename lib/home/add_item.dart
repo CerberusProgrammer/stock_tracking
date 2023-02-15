@@ -13,11 +13,16 @@ class _AdderItemState extends State<StatefulWidget> {
   TextEditingController name = TextEditingController();
   TextEditingController description = TextEditingController();
   TextEditingController value = TextEditingController();
+  TextEditingController category = TextEditingController();
   TextEditingController quantity = TextEditingController();
+
+  String? selected;
 
   void onEnd(context) {
     Navigator.of(context).pop();
   }
+
+  static List<DropdownMenuItem> items = [];
 
   @override
   Widget build(BuildContext context) {
@@ -43,6 +48,59 @@ class _AdderItemState extends State<StatefulWidget> {
                         const InputDecoration(label: Text('Description')),
                   ),
                 ),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: DropdownButton(
+                        value: selected,
+                        hint: const Text('Select a category'),
+                        items: items,
+                        onChanged: (value) {
+                          if (value != null) {
+                            setState(() {
+                              selected = value;
+                            });
+                          }
+                        },
+                      ),
+                    ),
+                    const Spacer(),
+                    FilledButton(
+                      onPressed: () => showDialog<String>(
+                        context: context,
+                        builder: (BuildContext context) => AlertDialog(
+                          title: const Text('Set the name of the category'),
+                          content: TextField(
+                            autofocus: true,
+                            controller: category,
+                            decoration: const InputDecoration(
+                                label: Text('Category'),
+                                hintText: 'Vegetables, Fruits, etc...'),
+                          ),
+                          actions: <Widget>[
+                            TextButton(
+                              onPressed: () => Navigator.pop(context, 'Cancel'),
+                              child: const Text('Cancel'),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                setState(() {
+                                  items.add(DropdownMenuItem(
+                                      child: Text(category.text)));
+                                });
+                                Navigator.pop(context, 'OK');
+                              },
+                              child: const Text('Add'),
+                            ),
+                          ],
+                        ),
+                      ),
+                      child: const Text('Add a category'),
+                    ),
+                  ],
+                ),
               ],
             )),
         PageViewModel(
@@ -65,6 +123,7 @@ class _AdderItemState extends State<StatefulWidget> {
                   padding: const EdgeInsets.all(10),
                   child: TextField(
                     controller: quantity,
+                    keyboardType: TextInputType.number,
                     decoration: const InputDecoration(label: Text('Quantity')),
                   ),
                 ),
