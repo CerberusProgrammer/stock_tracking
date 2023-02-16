@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_tracking/decoration.dart';
-import 'package:stock_tracking/inventory.dart';
+import 'package:stock_tracking/inventory/inventory.dart';
 import 'package:stock_tracking/search.dart';
 
 import 'home/home.dart';
