@@ -62,8 +62,8 @@ class _MainHome extends State<MainHome> with SingleTickerProviderStateMixin {
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: ListTile(
-                title: const Text('Home'),
-                leading: const Icon(Icons.home),
+                title: const Text('Admin Mode'),
+                leading: const Icon(Icons.admin_panel_settings),
                 onTap: () {},
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -73,8 +73,8 @@ class _MainHome extends State<MainHome> with SingleTickerProviderStateMixin {
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: ListTile(
-                title: const Text('Inventory'),
-                leading: const Icon(Icons.train),
+                title: const Text('User Mode'),
+                leading: const Icon(Icons.verified_user),
                 onTap: () {},
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),
@@ -84,8 +84,8 @@ class _MainHome extends State<MainHome> with SingleTickerProviderStateMixin {
             Padding(
               padding: const EdgeInsets.only(left: 10, right: 10),
               child: ListTile(
-                title: const Text('Settings'),
-                leading: const Icon(Icons.settings),
+                title: const Text('Viewer Mode'),
+                leading: const Icon(Icons.remove_red_eye),
                 onTap: () {},
                 shape: const RoundedRectangleBorder(
                   borderRadius: BorderRadius.all(Radius.circular(20)),

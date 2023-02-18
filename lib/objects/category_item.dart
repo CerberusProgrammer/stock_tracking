@@ -1,12 +1,18 @@
 import 'package:flutter/material.dart';
+import 'package:stock_tracking/objects/category_item.dart';
 
-class Category {
+class CategoryItem {
   String name;
   String description;
   Icon icon;
-  Image image;
+  Color color;
 
-  Category(this.name, this.description, this.icon, this.image);
+  CategoryItem({
+    required this.name,
+    this.description = '',
+    this.icon = const Icon(Icons.category),
+    this.color = Colors.red,
+  });
 
   String get getName {
     return name;
@@ -32,11 +38,11 @@ class Category {
     this.icon = icon;
   }
 
-  Image get getImage {
-    return image;
+  Color get getColor {
+    return color;
   }
 
-  set setImage(Image image) {
-    this.image = image;
+  set setImage(Color color) {
+    this.color = color;
   }
 }

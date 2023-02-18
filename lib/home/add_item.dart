@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:introduction_screen/introduction_screen.dart';
+import 'package:stock_tracking/objects/categories.dart';
+
+import '../objects/category_item.dart';
 
 class AdderItem extends StatefulWidget {
   const AdderItem({super.key});
@@ -22,7 +25,15 @@ class _AdderItemState extends State<StatefulWidget> {
     Navigator.of(context).pop();
   }
 
-  static List<DropdownMenuItem> items = [];
+  List<DropdownMenuItem> toDropdownMenuItems() {
+    List<DropdownMenuItem> items = [];
+
+    for (CategoryItem category in categoryList) {
+      items.add(DropdownMenuItem(child: Text(category.name)));
+    }
+
+    return items;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -32,6 +43,8 @@ class _AdderItemState extends State<StatefulWidget> {
             decoration: const PageDecoration(bodyAlignment: Alignment.center),
             title: 'Add the data of the item',
             bodyWidget: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 Padding(
                   padding: const EdgeInsets.all(10),
@@ -49,14 +62,14 @@ class _AdderItemState extends State<StatefulWidget> {
                   ),
                 ),
                 Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Padding(
                       padding: const EdgeInsets.all(10),
                       child: DropdownButton(
-                        value: selected,
+                        value: null,
                         hint: const Text('Select a category'),
-                        items: items,
+                        items: toDropdownMenuItems(),
                         onChanged: (value) {
                           if (value != null) {
                             setState(() {
@@ -65,39 +78,6 @@ class _AdderItemState extends State<StatefulWidget> {
                           }
                         },
                       ),
-                    ),
-                    const Spacer(),
-                    FilledButton(
-                      onPressed: () => showDialog<String>(
-                        context: context,
-                        builder: (BuildContext context) => AlertDialog(
-                          title: const Text('Set the name of the category'),
-                          content: TextField(
-                            autofocus: true,
-                            controller: category,
-                            decoration: const InputDecoration(
-                                label: Text('Category'),
-                                hintText: 'Vegetables, Fruits, etc...'),
-                          ),
-                          actions: <Widget>[
-                            TextButton(
-                              onPressed: () => Navigator.pop(context, 'Cancel'),
-                              child: const Text('Cancel'),
-                            ),
-                            TextButton(
-                              onPressed: () {
-                                setState(() {
-                                  items.add(DropdownMenuItem(
-                                      child: Text(category.text)));
-                                });
-                                Navigator.pop(context, 'OK');
-                              },
-                              child: const Text('Add'),
-                            ),
-                          ],
-                        ),
-                      ),
-                      child: const Text('Add a category'),
                     ),
                   ],
                 ),
@@ -115,7 +95,8 @@ class _AdderItemState extends State<StatefulWidget> {
                     keyboardType: TextInputType.number,
                     decoration: const InputDecoration(
                       label: Text('Value'),
-                      suffix: Text('\$'),
+                      suffixIcon: Icon(Icons.attach_money),
+                      suffix: Text('per item'),
                     ),
                   ),
                 ),
@@ -124,7 +105,9 @@ class _AdderItemState extends State<StatefulWidget> {
                   child: TextField(
                     controller: quantity,
                     keyboardType: TextInputType.number,
-                    decoration: const InputDecoration(label: Text('Quantity')),
+                    decoration: const InputDecoration(
+                      label: Text('Quantity'),
+                    ),
                   ),
                 ),
               ],
