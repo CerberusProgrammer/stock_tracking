@@ -46,59 +46,14 @@ class _MainHome extends State<MainHome> with SingleTickerProviderStateMixin {
         title: const Text('Stock Tracking'),
         actions: [
           IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.settings,
-              ))
+            onPressed: () {
+              (context as Element).reassemble();
+            },
+            icon: const Icon(
+              Icons.refresh,
+            ),
+          )
         ],
-      ),
-      drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              child: Text("Drawer Header"),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: ListTile(
-                title: const Text('Admin Mode'),
-                leading: const Icon(Icons.admin_panel_settings),
-                onTap: () {},
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: ListTile(
-                title: const Text('User Mode'),
-                leading: const Icon(Icons.verified_user),
-                onTap: () {},
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.only(left: 10, right: 10),
-              child: ListTile(
-                title: const Text('Viewer Mode'),
-                leading: const Icon(Icons.remove_red_eye),
-                onTap: () {},
-                shape: const RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20)),
-                ),
-              ),
-            ),
-            const Divider(
-              thickness: 2,
-              indent: 20,
-              endIndent: 20,
-            ),
-          ],
-        ),
       ),
       body: TabBarView(
         controller: _controller,

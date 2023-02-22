@@ -10,6 +10,6 @@ class Search extends StatefulWidget {
 class _Search extends State<Search> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold();
+    return const Scaffold();
   }
 }

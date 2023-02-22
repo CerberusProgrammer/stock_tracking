@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:stock_tracking/objects/category_item.dart';
 
 class CategoryItem {
   String name;

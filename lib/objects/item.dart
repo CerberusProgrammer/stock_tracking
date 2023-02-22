@@ -1,26 +1,25 @@
-import 'dart:ui';
-
-import 'package:flutter/foundation.dart';
+import 'package:flutter/widgets.dart';
+import 'package:stock_tracking/objects/category_item.dart';
 
 class Item {
   String name;
   String description;
-  Category category;
+  CategoryItem category;
   double value;
-  Picture picture;
+  Image picture;
   String barCode;
   int quantity;
   bool available;
 
   Item({
     required this.name,
-    required this.description,
+    this.description = '',
     required this.category,
     required this.value,
-    required this.picture,
+    this.picture = const Image(image: AssetImage('')),
     required this.barCode,
-    required this.quantity,
-    required this.available,
+    this.quantity = 1,
+    this.available = true,
   });
 
   String get getName {
@@ -39,11 +38,11 @@ class Item {
     this.description = description;
   }
 
-  Category get getCategory {
+  CategoryItem get getCategory {
     return category;
   }
 
-  set setCategory(Category category) {
+  set setCategory(CategoryItem category) {
     this.category = category;
   }
 
@@ -55,11 +54,11 @@ class Item {
     this.value = value;
   }
 
-  Picture get getPicture {
+  Image get getPicture {
     return picture;
   }
 
-  set setPicture(Picture picture) {
+  set setPicture(Image picture) {
     this.picture = picture;
   }
 

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_tracking/home/add_item.dart';
+import 'package:stock_tracking/objects/items.dart';
 
 class Home extends StatefulWidget {
   const Home({super.key});
@@ -13,14 +14,14 @@ class _Home extends State<StatefulWidget> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: ListView.builder(
-        itemCount: 10,
+        itemCount: items.length,
         itemBuilder: (BuildContext context, int index) {
           return Card(
+            color: items[index].category.color,
             child: ListTile(
-              leading: const Icon(Icons.home),
-              trailing: const Icon(Icons.insert_emoticon),
-              title: Text('Title of $index item'),
-              subtitle: Text('Subtitle of $index item'),
+              leading: items[index].category.icon,
+              title: Text(items[index].name),
+              subtitle: Text(items[index].description),
               onTap: () {},
             ),
           );

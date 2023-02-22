@@ -28,11 +28,11 @@ class _Inventory extends State<StatefulWidget> {
           crossAxisSpacing: 1,
           mainAxisSpacing: 1,
         ),
-        itemCount: categoryList.length,
+        itemCount: Categories.categoryList.length,
         itemBuilder: (BuildContext context, int index) {
           return InkWell(
             child: Card(
-              color: categoryList[index].color,
+              color: Categories.categoryList[index].color,
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.start,
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -44,14 +44,14 @@ class _Inventory extends State<StatefulWidget> {
                         Padding(
                           padding: const EdgeInsets.all(5),
                           child: Text(
-                            categoryList[index].name,
+                            Categories.categoryList[index].name,
                             style: const TextStyle(fontSize: 19),
                           ),
                         ),
                         const Spacer(),
                         IconButton(
                           onPressed: () {},
-                          icon: categoryList[index].icon,
+                          icon: Categories.categoryList[index].icon,
                           iconSize: 15,
                         ),
                       ],
@@ -60,7 +60,7 @@ class _Inventory extends State<StatefulWidget> {
                   Padding(
                     padding: const EdgeInsets.all(10),
                     child: Text(
-                      categoryList[index].description,
+                      Categories.categoryList[index].description,
                       style: const TextStyle(fontSize: 14),
                     ),
                   ),
@@ -133,7 +133,7 @@ class _Inventory extends State<StatefulWidget> {
                   onPressed: () {
                     if (name.text.isNotEmpty) {
                       setState(() {
-                        categoryList.add(CategoryItem(
+                        Categories.categoryList.add(CategoryItem(
                           name: name.text,
                           description:
                               description.text.isEmpty ? '' : description.text,
