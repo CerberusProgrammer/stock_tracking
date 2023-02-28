@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:stock_tracking/home/add_item.dart';
+import 'package:stock_tracking/objects/categories.dart';
 import 'package:stock_tracking/objects/items.dart';
 
 class Home extends StatefulWidget {
@@ -29,8 +30,10 @@ class _Home extends State<StatefulWidget> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context,
-              MaterialPageRoute(builder: (context) => const AdderItem()));
+          if (Categories.categoryList.isNotEmpty) {
+            Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const AdderItem()));
+          }
         },
         child: const Icon(Icons.add),
       ),

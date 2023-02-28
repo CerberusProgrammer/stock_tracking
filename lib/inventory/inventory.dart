@@ -30,49 +30,54 @@ class _Inventory extends State<StatefulWidget> {
         ),
         itemCount: Categories.categoryList.length,
         itemBuilder: (BuildContext context, int index) {
-          return InkWell(
-            child: Card(
-              color: Categories.categoryList[index].color,
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.only(left: 10),
-                    child: Row(
-                      children: [
-                        Padding(
-                          padding: const EdgeInsets.all(5),
-                          child: Text(
-                            Categories.categoryList[index].name,
-                            style: const TextStyle(fontSize: 19),
+          return Flexible(
+            child: InkWell(
+              child: Card(
+                color: Categories.categoryList[index].color,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(left: 10),
+                      child: Row(
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.all(5),
+                            child: Text(
+                              Categories.categoryList[index].name,
+                              style: const TextStyle(fontSize: 19),
+                            ),
                           ),
-                        ),
-                        const Spacer(),
-                        IconButton(
-                          onPressed: () {},
-                          icon: Categories.categoryList[index].icon,
-                          iconSize: 15,
-                        ),
-                      ],
+                          const Spacer(),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Categories.categoryList[index].icon,
+                            iconSize: 15,
+                          ),
+                        ],
+                      ),
                     ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.all(10),
-                    child: Text(
-                      Categories.categoryList[index].description,
-                      style: const TextStyle(fontSize: 14),
+                    Padding(
+                      padding: const EdgeInsets.all(10),
+                      child: Text(
+                        Categories.categoryList[index].description,
+                        style: const TextStyle(fontSize: 14),
+                      ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
+              ),
+              onTap: () => showDialog(
+                context: context,
+                builder: (context) => AlertDialog(
+                  title: Text(Categories.categoryList[index].name),
+                  content: Categories.categoryList[index].description.isEmpty
+                      ? null
+                      : Text(Categories.categoryList[index].description),
+                ),
               ),
             ),
-            onTap: () => showDialog(
-                context: context,
-                builder: (context) => const AlertDialog(
-                      title: Text('hi'),
-                      content: Text('hq'),
-                    )),
           );
         },
       ),

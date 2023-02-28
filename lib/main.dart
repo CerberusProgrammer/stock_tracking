@@ -46,9 +46,7 @@ class _MainHome extends State<MainHome> with SingleTickerProviderStateMixin {
         title: const Text('Stock Tracking'),
         actions: [
           IconButton(
-            onPressed: () {
-              (context as Element).reassemble();
-            },
+            onPressed: () {},
             icon: const Icon(
               Icons.refresh,
             ),
