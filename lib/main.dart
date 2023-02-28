@@ -4,17 +4,17 @@ import 'package:stock_tracking/inventory/inventory.dart';
 import 'package:stock_tracking/search.dart';
 
 import 'home/home.dart';
+import 'items/items.dart';
 
 void main() {
   runApp(MaterialApp(
-    debugShowCheckedModeBanner: false,
-    theme: ThemeData(
-      useMaterial3: true,
-      brightness: Brightness.dark,
-      colorScheme: theme,
-    ),
-    home: const MainHome(),
-  ));
+      debugShowCheckedModeBanner: false,
+      theme: ThemeData(
+        useMaterial3: true,
+        brightness: Brightness.dark,
+        colorScheme: theme,
+      ),
+      home: const MainHome()));
 }
 
 class MainHome extends StatefulWidget {
@@ -29,12 +29,14 @@ class _MainHome extends State<MainHome> with SingleTickerProviderStateMixin {
 
   static const List<Tab> _tabs = [
     Tab(icon: Icon(Icons.home), text: 'Home'),
+    Tab(icon: Icon(Icons.insert_emoticon), text: 'Items'),
     Tab(icon: Icon(Icons.search), text: 'Search'),
     Tab(icon: Icon(Icons.inventory), text: 'Inventory'),
   ];
 
   static const List<Widget> _pages = [
     Home(),
+    Items(),
     Search(),
     Inventory(),
   ];
